@@ -207,23 +207,10 @@ void loop() {
     }; 
     digitalWrite(10, LOW);
         
-      // } else {
-      //   Serial.println(F(" Recieved: an empty ACK packet"));  // empty ACK packet received
-      // }
-
-
-//    } else {
-//      Serial.println(F("Transmission failed or timed out"));  // payload was not delivered
-//  
-  //  } else {
-  //    Serial.print("Trying to start radio");
-  //    radio.begin();
    } else {
      Serial.println("No payload received");
      digitalWrite(10, LOW);
    };
-
-  //  };
 
 
   Serial.println("----------");
@@ -236,20 +223,9 @@ void loop() {
   PayloadStruct received;
       for(int i=0;i<NUMBER_OF_TOOLS;i++){
         if( checkForAmperageChange(i) && !payload.collectorSideOn){
-
-          // Serial.println(i);
-          // Serial.println(myservo[i].read());
-
           activeTool = i;
           exit;
         }
-        // if( i!=0){
-        //   if(checkForAmperageChange(0) && !payload.collectorSideOn){
-
-        //     activeTool = 0;
-        //     exit;
-        //   }
-        // }
       }
     if(activeTool != 10){
       // use activeTool for gate processing
@@ -317,7 +293,6 @@ void loop() {
   radio.writeAckPayload(1, &payload, sizeof(payload));
   Serial.println("Starting to Listen");
 
-      // radio.stopListening();                 // this also discards any unused ACK payloads
   radio.startListening();
 }  // loop
 
