@@ -186,12 +186,6 @@ void loop() {
             activeTool = i;
             exit;
           }
-          // if( i!=0){
-          //   if(checkForAmperageChange(0)){
-          //     activeTool = 0;
-          //     exit;
-          //   }
-          // }
        }
       if(activeTool != 10){
         // use activeTool for gate processing
@@ -298,16 +292,16 @@ void closeGate(uint8_t num){
   Serial.println(tools[num]);
 
   myservo[num].write(gateMinMax[num][0]);
-  // delay(300);
-  // if(num = 0){
-  //   myservo[num].write(gateMinMax[num][0]-4);
-  //   delay(300);
-  //   myservo[num].write(gateMinMax[num][0]+2);
-  // } else {
-  //   myservo[num].write(gateMinMax[num][0]+4);
-  //   delay(300);
-  //   myservo[num].write(gateMinMax[num][0]-2);
-  // }
+  delay(300);
+  if(num = 0){
+    myservo[num].write(gateMinMax[num][0]-4);
+    delay(300);
+    myservo[num].write(gateMinMax[num][0]+2);
+  } else {
+    myservo[num].write(gateMinMax[num][0]+4);
+    delay(300);
+    myservo[num].write(gateMinMax[num][0]-2);
+  }
 }
 
 void openGate(uint8_t num){
@@ -317,16 +311,16 @@ void openGate(uint8_t num){
   Serial.println(tools[num]);
 
   myservo[num].write(gateMinMax[num][1]);
-  //   delay(300);
-  // if(num = 0){
-  //   myservo[num].write(gateMinMax[num][1]+2);
-  //   delay(300);
-  //   myservo[num].write(gateMinMax[num][1]-4);
-  // } else {
-  //   myservo[num].write(gateMinMax[num][1]-2);
-  //   delay(300);
-  //   myservo[num].write(gateMinMax[num][1]+4);
-  // }
+    delay(300);
+  if(num = 0){
+    myservo[num].write(gateMinMax[num][1]+2);
+    delay(300);
+    myservo[num].write(gateMinMax[num][1]-4);
+  } else {
+    myservo[num].write(gateMinMax[num][1]-2);
+    delay(300);
+    myservo[num].write(gateMinMax[num][1]+4);
+  }
 
 
 }
